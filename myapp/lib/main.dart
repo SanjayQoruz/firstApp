@@ -29,7 +29,24 @@ class _DeliveryTimelinePageState extends State<DeliveryTimelinePage> {
       appBar: AppBar(
         title: Text('Delivery Timeline'),
       ),
-      body: 
+      body: Flexible(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Order ID: 123456',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 16),
+              for (int i = 0; i < isCheckedList.length; i++)
+                TimelineItem(
+                  status: 'Status $i',
+                  date: 'Jan ${i + 1}, 2023',
+                  isChecked: isCheckedList[i],
+                ),
+            ],
           ),
         ),
       ),
